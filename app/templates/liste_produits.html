@@ -1,0 +1,144 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des produits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .comment-input {
+            display: none;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .comment-btn {
+            display: none;
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .show-comment-btn {
+            display: none;
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .comment-toggle{
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des produits</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                <tr>
+                    <td>{{ produit.nom }}</td>
+                    <td>{{ produit.description }}</td>
+                    <td>{{ produit.prix }}</td>
+                    <td>
+                        <div class="comment-wrapper" data-id="{{ produit._id }}">
+                            <button class="comment-toggle" data-id="{{ produit._id }}" >Commenter</button>
+                            <form action="/produit/{{ produit._id }}" method="post">
+                                <textarea class="comment-input" name="commentaire" data-id="{{ produit._id }}"></textarea>
+                                <button type="submit" data-id="{{ produit._id }}" style="display:none;" class="show-comment-btn">Envoyer</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.querySelectorAll('.comment-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const wrapper = toggle.parentElement;
+                wrapper.querySelector('.comment-input').style.display = 'block';
+                toggle.style.display = 'none';
+                wrapper.querySelector('.show-comment-btn').style.display = 'block';
+            });
+        });
+
+        document.querySelectorAll('.comment-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const wrapper = btn.parentElement;
+                const productId = wrapper.getAttribute('data-id');
+                const commentInput = wrapper.querySelector('.comment-input');
+                const commentValue = commentInput.value;
+                const url = `/produit/${productId}?comment=${commentValue}`;
+                window.location.href = url;
+            });
+        });
+    </script>
+</body>
+</html>

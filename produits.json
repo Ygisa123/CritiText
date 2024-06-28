@@ -1,0 +1,11 @@
+{"_id":{"$oid":"661d68e16262d23e574c93f9"},"produit_id":"660f044e0e6f3bb7064140b4","texte":"Very good product","positif":true}
+{"_id":{"$oid":"661d6a0c654a15c61fac4b47"},"produit_id":"660f044e0e6f3bb7064140b4","texte":"Not good product all","positif":true}
+{"_id":{"$oid":"661d6fd79002f48fdf5537bc"},"produit_id":"660f044e0e6f3bb7064140b5","texte":"very good product","positif":true}
+{"_id":{"$oid":"661d800bf6e48bed233556b3"},"produit_id":"660f044e0e6f3bb7064140b8","texte":"Very good product","positif":true}
+{"_id":{"$oid":"661d808cf6e48bed233556b4"},"produit_id":"660f044e0e6f3bb7064140b8","texte":"this is the worse product i have never seen","positif":true}
+{"_id":{"$oid":"661d8122d707f2516f1eb6cc"},"produit_id":"660f044e0e6f3bb7064140b6","texte":"Very good product","positif":true}
+{"_id":{"$oid":"661d81a15e8d2a00b605b088"},"produit_id":"660f044e0e6f3bb7064140b6","texte":"Very good product","positif":true}
+{"_id":{"$oid":"661d81db5e8d2a00b605b089"},"produit_id":"660f044e0e6f3bb7064140b6","texte":"Worst product","positif":true}
+{"_id":{"$oid":"661d8258c668cb0625f7a004"},"produit_id":"660f044e0e6f3bb7064140b8","texte":"Very good product","positif":true}
+{"_id":{"$oid":"661d828ac668cb0625f7a005"},"produit_id":"660f044e0e6f3bb7064140b8","texte":"bad product ","positif":true}
+{"_id":{"$oid":"661d830b6165900cd099c2ea"},"produit_id":"660f044e0e6f3bb7064140b9","texte":"this is the good product","positif":true}
